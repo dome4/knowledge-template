@@ -1,0 +1,14 @@
+---
+layout: default
+title: Home
+---
+<h1>{{ "Hello World!" | downcase }}</h1>
+
+<ul>
+    {% for article in site.data.articles %}
+        <li>
+            <h1>{{ article.header }}</h1>
+            <p>{{ article.content }}</p>    
+        </li>
+    {% endfor %}
+</ul>
