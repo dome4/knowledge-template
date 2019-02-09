@@ -29,11 +29,11 @@
 		}
 
 		@include breakpoint('<=xlarge') {
-			padding-top: 5em;
+			padding-top: 3em;
 		}
 
 		@include breakpoint('<=small') {
-			padding-top: 6.5em;
+			padding-top: 4em;
 
 			.logo {
 				font-size: 1.25em;
