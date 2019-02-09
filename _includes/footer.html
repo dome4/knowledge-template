@@ -6,9 +6,16 @@
         <div class="row">
             <div class="col-6 col-12-medium">									
                 <ul class="contact">
-                    <li class="fa-external-link"><a href="#">untitled.tld</a></li>
-                    <li class="fa-external-link"><a href="#">untitled.tld</a></li>
-                    <li class="fa-external-link"><a href="#">untitled.tld</a></li>
+                    {% for link in site.data.links %}
+                        <!-- ToDo: only render necessary pars of the links -->
+                        <li class="fa-external-link"><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+
+                        {% if forloop.index == 3 %}
+                            {% break %}
+                        {% endif %}
+                    
+                    {% endfor %}
+
                 </ul>								
             </div>
             <div class="col-6 col-12-medium">							
