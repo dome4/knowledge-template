@@ -12,7 +12,7 @@
 		width: 100%;
 
 		> .inner {
-			@include padding(0, 6em);
+			@include padding(0, 8em);
 			margin: 0 auto;
 			max-width: 110em;
 
@@ -28,7 +28,7 @@
 
 		@include breakpoint('<=xlarge') {
 			> .inner {
-				@include padding(0, 5em);
+				@include padding(0, 6em);
 
 				> section {
 					@include padding(5em, 0);
