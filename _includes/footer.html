@@ -7,8 +7,18 @@
             <div class="col-6 col-12-medium">									
                 <ul class="contact">
                     {% for link in site.data.links %}
-                        <!-- ToDo: only render necessary pars of the links -->
-                        <li class="fa-external-link"><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+                        {% assign pretty_link = link %}
+                        {% if pretty_link contains '://' %}
+                            {% assign a = pretty_link | split: '://' %}
+                            {% assign pretty_link = a[1] %}
+                        {% endif %}
+
+                        {% if pretty_link contains '/' %}
+                            {% assign b = pretty_link | split: '/' %}
+                            {% assign pretty_link = b[0] %}
+                        {% endif %}
+
+                        <li class="fa-external-link"><a href="{{ link }}" target="_blank">{{ pretty_link }}</a></li>
 
                         {% if forloop.index == 3 %}
                             {% break %}
