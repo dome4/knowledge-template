@@ -4,11 +4,18 @@
     var disableStr = 'ga-disable-' + gaProperty; 
     if (document.cookie.indexOf(disableStr + '=true') > -1) { 
         window[disableStr] = true;
-    }  
+    } 
+    // disable google analytics tracking 
     function gaOptout() { 
         document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/'; 
         window[disableStr] = true; 
         alert('Das Tracking durch Google Analytics wurde in Ihrem Browser für diese Website deaktiviert.'); 
+    }
+    // remove opt out cookie
+    function gaOptin() {
+        if (document.cookie.indexOf(disableStr + '=true') > -1) { 
+            window[disableStr] = false;
+        }  
     }
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133187956-1"></script>
