@@ -40,9 +40,10 @@ title: Home
             <h2>{{ article.header }}</h2>
             <span class="image left"><img src="{{ article.img }}" alt=""></span>  
 
-            <!-- ToDo: not responsive yet-> img-tag has to be placed p-tag -->
-            
-
+        {% elsif article.type == "img-right" %}
+            <h2>{{ article.header }}</h2>
+            <span class="image right"><img src="{{ article.img }}" alt=""></span>  
+     
         {% endif %}
 
         {% for paragraph in article.content %}

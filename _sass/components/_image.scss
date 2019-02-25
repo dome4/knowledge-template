@@ -61,6 +61,22 @@
 				margin: 0px;
 			}
 		}
+
+		@include breakpoint('<=medium') {
+			&.left,
+			&.right {
+				max-width: 100%;
+				margin: 0 0 (_size(element-margin) * 1.5) 0;
+			}
+
+			&.left {
+				padding: 0;
+			}
+	
+			&.right {
+				padding: 0;
+			}
+		}
 	}
 
 	a.image {
