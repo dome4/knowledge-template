@@ -36,6 +36,13 @@ title: Home
         
             <span class="image main"><img src="{{ article.img }}" alt="" /></span>
 
+        {% elsif article.type == "img-left" %}
+            <h2>{{ article.header }}</h2>
+            <span class="image left"><img src="{{ article.img }}" alt=""></span>  
+
+            <!-- ToDo: not responsive yet-> img-tag has to be placed p-tag -->
+            
+
         {% endif %}
 
         {% for paragraph in article.content %}
