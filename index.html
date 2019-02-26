@@ -8,17 +8,16 @@ image: /assets/images/pic01.jpg
 <section id="banner">
     <div class="content">
         <header>
-            <h1>Hi, I’m Editorial<br />
-            by HTML5 UP</h1>
-            <p>A free and fully responsive site template</p>
+            <h1>{{ site.data.banner.title }}</h1>
+            <p>{{ site.data.banner.subtitle }}</p>
         </header>
-        <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+        <p>{{ site.data.banner.description }}</p>
         <ul class="actions">
-            <li><a href="#" class="button big">Learn More</a></li>
+            <li><a href="{{ site.data.banner.link.path }}" class="button big">{{ site.data.banner.link.text }}</a></li>
         </ul>
     </div>
     <span class="image object">
-        <img src="assets/images/pic10.jpg" alt="placeholder" />
+        <img src="{{ site.data.banner.img.path }}" alt="{{ site.data.banner.img.alt }}" />
     </span>
 </section>
 
