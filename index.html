@@ -18,7 +18,7 @@ image: /assets/images/pic01.jpg
         </ul>
     </div>
     <span class="image object">
-        <img src="assets/images/pic10.jpg" alt="" />
+        <img src="assets/images/pic10.jpg" alt="placeholder" />
     </span>
 </section>
 
@@ -38,19 +38,19 @@ image: /assets/images/pic01.jpg
                     <h2>{{ article.header }}</h2>
                 </header>
             
-                <span class="image main"><img src="{{ article.img }}" alt="" /></span>
+                <span class="image main"><img src="{{ article.img.path }}" alt="{{ article.img.alt }}" /></span>
 
             {% when 'img-left' %}
                 <header class="major">
                     <h2>{{ article.header }}</h2>
                 </header>
-                <span class="image left"><img src="{{ article.img }}" alt=""></span>  
+                <span class="image left"><img src="{{ article.img.path }}" alt="{{ article.img.alt }}"></span>  
 
             {% when 'img-right' %}
                 <header class="major">
                     <h2>{{ article.header }}</h2>
                 </header>
-                <span class="image right"><img src="{{ article.img }}" alt=""></span>  
+                <span class="image right"><img src="{{ article.img.path }}" alt="{{ article.img.alt }}"></span>  
         
         {% endcase %}
 
@@ -61,7 +61,7 @@ image: /assets/images/pic01.jpg
         {% if article.ad %}
             <div class="row aln-center">
                 <div class="col-10 col-12-medium">
-                    <span class="image main no-margin"><img src="assets/images/example-ads/ad2.png" alt="" /></span>
+                    <span class="image main no-margin"><img src="assets/images/example-ads/ad2.png" alt="GoogleAd" /></span>
                 </div>
             </div>
             
