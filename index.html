@@ -26,25 +26,32 @@ title: Home
 
     {% for article in site.data.articles %}
 
-        {% if article.type == "text" %}
-            <h2>{{ article.header }}</h2>    
+        {% case article.type %}
+            {% when 'text' %}
+                <header class="major">
+                    <h2>{{ article.header }}</h2>
+                </header>
 
-        {% elsif article.type == "img-banner" %}
-            <header class="main">
-                <h2>{{ article.header }}</h2>
-            </header>
+            {% when 'img-banner' %}
+                <header class="major">
+                    <h2>{{ article.header }}</h2>
+                </header>
+            
+                <span class="image main"><img src="{{ article.img }}" alt="" /></span>
+
+            {% when 'img-left' %}
+                <header class="major">
+                    <h2>{{ article.header }}</h2>
+                </header>
+                <span class="image left"><img src="{{ article.img }}" alt=""></span>  
+
+            {% when 'img-right' %}
+                <header class="major">
+                    <h2>{{ article.header }}</h2>
+                </header>
+                <span class="image right"><img src="{{ article.img }}" alt=""></span>  
         
-            <span class="image main"><img src="{{ article.img }}" alt="" /></span>
-
-        {% elsif article.type == "img-left" %}
-            <h2>{{ article.header }}</h2>
-            <span class="image left"><img src="{{ article.img }}" alt=""></span>  
-
-        {% elsif article.type == "img-right" %}
-            <h2>{{ article.header }}</h2>
-            <span class="image right"><img src="{{ article.img }}" alt=""></span>  
-     
-        {% endif %}
+        {% endcase %}
 
         {% for paragraph in article.content %}
             <p>{{ paragraph }}</p>
