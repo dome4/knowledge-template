@@ -5,71 +5,76 @@ image: /assets/images/pic01.jpg
 ---
 
 <!-- Banner -->
+{% if site.data.banner %}
 <section id="banner">
-    <div class="content">
-        <header>
-            <h1>{{ site.data.banner.title }}</h1>
-            <p>{{ site.data.banner.subtitle }}</p>
-        </header>
-        <p>{{ site.data.banner.description }}</p>
-        <ul class="actions">
-            <li><a href="{{ site.data.banner.link.path }}" class="button big">{{ site.data.banner.link.text }}</a></li>
-        </ul>
-    </div>
-    <span class="image object">
-        <img src="{{ site.data.banner.img.path }}" alt="{{ site.data.banner.img.alt }}" />
-    </span>
+  <div class="content">
+    <header>
+      <h1>{{ site.data.banner.title }}</h1>
+      <p>{{ site.data.banner.subtitle }}</p>
+    </header>
+    <p>{{ site.data.banner.description }}</p>
+    <ul class="actions">
+      <li>
+        <a href="{{ site.data.banner.link.path }}" class="button big">{{
+          site.data.banner.link.text
+        }}</a>
+      </li>
+    </ul>
+  </div>
+  <span class="image object">
+    <img
+      src="{{ site.data.banner.img.path }}"
+      alt="{{ site.data.banner.img.alt }}"
+    />
+  </span>
 </section>
+{% endif %}
 
 <!-- Content -->
-<section>    
+<section>
+  {% for article in site.data.articles %} {% case article.type %} {% when 'text'
+  %}
+  <header class="major">
+    <h2>{{ article.header }}</h2>
+  </header>
 
-    {% for article in site.data.articles %}
+  {% when 'img-banner' %}
+  <header class="major">
+    <h2>{{ article.header }}</h2>
+  </header>
 
-        {% case article.type %}
-            {% when 'text' %}
-                <header class="major">
-                    <h2>{{ article.header }}</h2>
-                </header>
+  <span class="image main"
+    ><img src="{{ article.img.path }}" alt="{{ article.img.alt }}"
+  /></span>
 
-            {% when 'img-banner' %}
-                <header class="major">
-                    <h2>{{ article.header }}</h2>
-                </header>
-            
-                <span class="image main"><img src="{{ article.img.path }}" alt="{{ article.img.alt }}" /></span>
+  {% when 'img-left' %}
+  <header class="major">
+    <h2>{{ article.header }}</h2>
+  </header>
+  <span class="image left"
+    ><img src="{{ article.img.path }}" alt="{{ article.img.alt }}"
+  /></span>
 
-            {% when 'img-left' %}
-                <header class="major">
-                    <h2>{{ article.header }}</h2>
-                </header>
-                <span class="image left"><img src="{{ article.img.path }}" alt="{{ article.img.alt }}"></span>  
+  {% when 'img-right' %}
+  <header class="major">
+    <h2>{{ article.header }}</h2>
+  </header>
+  <span class="image right"
+    ><img src="{{ article.img.path }}" alt="{{ article.img.alt }}"
+  /></span>
 
-            {% when 'img-right' %}
-                <header class="major">
-                    <h2>{{ article.header }}</h2>
-                </header>
-                <span class="image right"><img src="{{ article.img.path }}" alt="{{ article.img.alt }}"></span>  
-        
-        {% endcase %}
+  {% endcase %} {% for paragraph in article.content %}
+  <p>{{ paragraph }}</p>
+  {% endfor %} {% if article.ad %}
+  <div class="row aln-center">
+    <div class="col-10 col-12-medium">
+      <span class="image main no-margin"
+        ><img src="assets/images/example-ads/ad2.png" alt="GoogleAd"
+      /></span>
+    </div>
+  </div>
 
-        {% for paragraph in article.content %}
-            <p>{{ paragraph }}</p>
-        {% endfor %}
-
-        {% if article.ad %}
-            <div class="row aln-center">
-                <div class="col-10 col-12-medium">
-                    <span class="image main no-margin"><img src="assets/images/example-ads/ad2.png" alt="GoogleAd" /></span>
-                </div>
-            </div>
-            
-        {% endif %}
-
-        {% if forloop.last == false %}
-            <hr class="major" />
-        {% endif %}        
-
-    {% endfor %}
-
+  {% endif %} {% if forloop.last == false %}
+  <hr class="major" />
+  {% endif %} {% endfor %}
 </section>
